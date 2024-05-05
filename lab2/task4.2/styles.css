@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 1080px;
+}
+
+.background1 {
+    height: 50%;
+    background-image: url(media-files/mosaic.jpg);
+    background-size: contain;
+}
+
+.background2 {
+    height: 50%;
+    background-image: url(media-files/mosaic.jpg);
+    background-size: 10px 10px;
+}

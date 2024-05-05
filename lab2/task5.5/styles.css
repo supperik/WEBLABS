@@ -1,0 +1,7 @@
+ul li {
+	background: blue;
+}
+
+li + #thirditem {
+	background: green;
+}

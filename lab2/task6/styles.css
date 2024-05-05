@@ -1,0 +1,30 @@
+body {
+    background-image: url(media-files/background-vertical.jpg);
+    background-repeat: repeat-y;
+    font-family: 'Times New Roman', serif;
+}
+  
+h1 {
+    font-family: Courier, monospace;
+    color: red;
+}
+
+  
+h2 {
+    text-decoration: underline;
+}
+  
+p {
+    padding-left: 20px;
+}
+  
+p.par {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px;
+}
+  
+a.hover {
+    color: green;
+    text-decoration: none;
+}
+  

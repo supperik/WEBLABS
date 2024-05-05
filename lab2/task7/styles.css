@@ -1,0 +1,20 @@
+body {
+    color: blue;
+}
+
+ul li {
+    color: red;
+}
+
+ol li {
+    color: green;
+}
+  
+ol li:nth-of-type(2) {
+    background-color: green;
+}
+  
+tr:nth-child(odd) {
+    background-color: yellow;
+}
+  
