@@ -1,0 +1,18 @@
+#wrapper {
+	display: flex;
+}
+
+#sectionA {
+	background-color: red;
+    width: 33%;
+}
+
+#sectionB {
+	background-color: lightgreen;
+    width: 33%;
+}
+
+#sectionC {
+	background-color: blue;
+    width: 33%;
+}
