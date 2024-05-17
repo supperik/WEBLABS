@@ -82,7 +82,7 @@ const canvas = document.getElementById("gameCanvas");
     // Функция для генерации лабиринта
     function generateMaze() {
         // Создаем пустой лабиринт
-        const maze = Array.from({ length: mazeHeight }, () => Array.from({ length: mazeWidth }, () => 1));
+        const maze = Array.from({ length: mazeHeight - 1 }, () => Array.from({ length: mazeWidth - 1 }, () => 1));
         
         // Рекурсивная функция для создания пути в лабиринте
         function createPath(x, y) {

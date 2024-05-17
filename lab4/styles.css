@@ -1,0 +1,21 @@
+body {
+    background-color: aliceblue;
+    margin: 0px;
+}
+
+.gameTitle {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+}
+
+.gameTitle p {
+    margin: 0px;
+    margin-left: 43%;
+    margin-top: 30px;
+}
+
+#gameCanvas {
+    position: absolute;
+    top: 15%;
+    left: 30%;
+}
