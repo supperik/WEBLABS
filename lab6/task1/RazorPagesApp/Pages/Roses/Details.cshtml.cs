@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using RazorPagesApp.Data;
 using RazorPagesApp.Models;
 
-namespace RazorPagesApp.Pages.Movies
+namespace RazorPagesApp.Pages.Roses
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace RazorPagesApp.Pages.Movies
             _context = context;
         }
 
-        public Movie Movie { get; set; } = default!;
+        public Rose Rose { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,14 +28,14 @@ namespace RazorPagesApp.Pages.Movies
                 return NotFound();
             }
 
-            var movie = await _context.Movie.FirstOrDefaultAsync(m => m.Id == id);
-            if (movie == null)
+            var rose = await _context.Rose.FirstOrDefaultAsync(m => m.Id == id);
+            if (rose == null)
             {
                 return NotFound();
             }
             else
             {
-                Movie = movie;
+                Rose = rose;
             }
             return Page();
         }

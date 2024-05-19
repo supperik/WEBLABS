@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using RazorPagesApp.Data;
 using RazorPagesApp.Models;
 
-namespace RazorPagesApp.Pages.Movies
+namespace RazorPagesApp.Pages.Roses
 {
     public class CreateModel : PageModel
     {
@@ -25,7 +25,7 @@ namespace RazorPagesApp.Pages.Movies
         }
 
         [BindProperty]
-        public Movie Movie { get; set; } = default!;
+        public Rose Rose { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +35,7 @@ namespace RazorPagesApp.Pages.Movies
                 return Page();
             }
 
-            _context.Movie.Add(Movie);
+            _context.Rose.Add(Rose);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

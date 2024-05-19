@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using RazorPagesApp.Data;
 using RazorPagesApp.Models;
 
-namespace RazorPagesApp.Pages.Movies
+namespace RazorPagesApp.Pages.Roses
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace RazorPagesApp.Pages.Movies
         }
 
         [BindProperty]
-        public Movie Movie { get; set; } = default!;
+        public Rose Rose { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,12 +30,12 @@ namespace RazorPagesApp.Pages.Movies
                 return NotFound();
             }
 
-            var movie =  await _context.Movie.FirstOrDefaultAsync(m => m.Id == id);
-            if (movie == null)
+            var rose =  await _context.Rose.FirstOrDefaultAsync(m => m.Id == id);
+            if (rose == null)
             {
                 return NotFound();
             }
-            Movie = movie;
+            Rose = rose;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace RazorPagesApp.Pages.Movies
                 return Page();
             }
 
-            _context.Attach(Movie).State = EntityState.Modified;
+            _context.Attach(Rose).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace RazorPagesApp.Pages.Movies
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MovieExists(Movie.Id))
+                if (!RoseExists(Rose.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace RazorPagesApp.Pages.Movies
             return RedirectToPage("./Index");
         }
 
-        private bool MovieExists(int id)
+        private bool RoseExists(int id)
         {
-            return _context.Movie.Any(e => e.Id == id);
+            return _context.Rose.Any(e => e.Id == id);
         }
     }
 }

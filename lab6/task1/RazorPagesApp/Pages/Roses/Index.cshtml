@@ -1,0 +1,128 @@
+﻿@page
+@model RazorPagesApp.Pages.Roses.IndexModel
+@{
+    ViewData["Title"] = "Розы";
+}
+
+<h1>Розы</h1>
+
+<a asp-page="./Create">Создать</a>
+
+<form id="filterForm" method="get">
+    <div>
+        <label asp-for="StemLength">Длина стебля больше:</label>
+        <input asp-for="StemLength" type="number" step="1" />
+    </div>
+    <div>
+        <label asp-for="Color">Цвет:</label>
+        <input asp-for="Color" />
+    </div>
+    <button type="submit">Применить фильтр</button>
+    <button type="button" onclick="clearFilter()">Сбросить</button>
+</form>
+
+@if (Model.StemLength == 0 && Model.Color == null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Вид</th>
+                <th>Цвет</th>
+                <th>Длина стебля</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rose in Model.AllRoses)
+            {
+                <tr>
+                    <td>@rose.Title</td>
+                    <td>@rose.Species</td>
+                    <td>@rose.Color</td>
+                    <td>@rose.StemLength</td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@rose.Id">Edit</a>
+                        <a asp-page="./Details" asp-route-id="@rose.Id">Details</a>
+                        <a asp-page="./Delete" asp-route-id="@rose.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    @if (Model.StemLength != 0)
+    {
+        <h2>Розы с длиной стебля больше @Model.StemLength:</h2>
+        <table class="table mb-5">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Вид</th>
+                    <th>Цвет</th>
+                    <th>Длина стебля</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var rose in Model.TeaRoses)
+                {
+                    <tr>
+                        <td>@rose.Title</td>
+                        <td>@rose.Species</td>
+                        <td>@rose.Color</td>
+                        <td>@rose.StemLength</td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@rose.Id">Edit</a>
+                            <a asp-page="./Details" asp-route-id="@rose.Id">Details</a>
+                            <a asp-page="./Delete" asp-route-id="@rose.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.Color != null) 
+    {
+        <h2>Розы заданного цвета @Model.Color:</h2>
+        <table class="table mb-5">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Вид</th>
+                    <th>Цвет</th>
+                    <th>Длина стебля</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var rose in Model.TeaRoses)
+                {
+                    <tr>
+                        <td>@rose.Title</td>
+                        <td>@rose.Species</td>
+                        <td>@rose.Color</td>
+                        <td>@rose.StemLength</td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@rose.Id">Edit</a>
+                            <a asp-page="./Details" asp-route-id="@rose.Id">Details</a>
+                            <a asp-page="./Delete" asp-route-id="@rose.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <p>Всего роз заданного цвета: @Model.TeaRoses.Count</p>
+        </table>
+    }
+
+    <script>
+        function clearFilter() {
+            document.getElementById('StemLength').value = '';
+            document.getElementById('Color').value = '';
+            document.getElementById('filterForm').submit();
+        }
+    </script>
+}

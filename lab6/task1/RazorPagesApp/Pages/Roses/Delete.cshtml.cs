@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using RazorPagesApp.Data;
 using RazorPagesApp.Models;
 
-namespace RazorPagesApp.Pages.Movies
+namespace RazorPagesApp.Pages.Roses
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace RazorPagesApp.Pages.Movies
         }
 
         [BindProperty]
-        public Movie Movie { get; set; } = default!;
+        public Rose Rose { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,15 +29,15 @@ namespace RazorPagesApp.Pages.Movies
                 return NotFound();
             }
 
-            var movie = await _context.Movie.FirstOrDefaultAsync(m => m.Id == id);
+            var rose = await _context.Rose.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (movie == null)
+            if (rose == null)
             {
                 return NotFound();
             }
             else
             {
-                Movie = movie;
+                Rose = rose;
             }
             return Page();
         }
@@ -49,11 +49,11 @@ namespace RazorPagesApp.Pages.Movies
                 return NotFound();
             }
 
-            var movie = await _context.Movie.FindAsync(id);
-            if (movie != null)
+            var rose = await _context.Rose.FindAsync(id);
+            if (rose != null)
             {
-                Movie = movie;
-                _context.Movie.Remove(Movie);
+                Rose = rose;
+                _context.Rose.Remove(Rose);
                 await _context.SaveChangesAsync();
             }
 
