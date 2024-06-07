@@ -14,6 +14,7 @@
             const animals = [ 'Horse', 'Turtle', 'Elephant', 'Monkey' ];
             
             var app = document.querySelector('#myDiv');
+            
             app.innerHTML = '<ul>' + animals.map(function (animal) {
             	return '<li>' + animal + '</li>';
             }).join('') + '</ul>';

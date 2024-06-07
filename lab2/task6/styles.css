@@ -23,7 +23,7 @@ p.par {
     padding: 5px;
 }
   
-a.hover {
+a:hover {
     color: green;
     text-decoration: none;
 }

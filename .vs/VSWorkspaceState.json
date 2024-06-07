@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\lab6",
-    "\\lab6\\task1",
-    "\\lab6\\task1\\RazorPagesApp",
-    "\\lab6\\task1\\RazorPagesApp\\Pages"
+    ""
   ],
-  "SelectedNode": "\\lab6\\task1\\RazorPagesApp\\Pages\\Movies",
+  "SelectedNode": "\\RazorPagesApp.sln",
   "PreviewInSolutionExplorer": false
 }
